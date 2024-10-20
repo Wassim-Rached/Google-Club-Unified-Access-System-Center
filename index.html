@@ -5,81 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SOA Server Health Check</title>
     <link
-      rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      integrity="sha384-DONjkF8CAQxX+jXnkTKvCJSklHJTQkWjIvooYjQzcbSlCjyJyCECqYOqDYwMjOe/"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
     <style>
-      .container {
-        max-width: 800px;
-        margin: 2rem auto;
-      }
-      .card {
-        border-color: #ddd;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      }
-      .card-header {
-        background-color: #f8f9fa;
-        color: #333;
-      }
-      .list-group-item {
-        padding: 1rem 1.5rem;
-      }
-      .list-group-item:first-child {
-        border-top-left-radius: 0.3rem;
-        border-top-right-radius: 0.3rem;
-      }
-      .list-group-item:last-child {
-        border-bottom-left-radius: 0.3rem;
-        border-bottom-right-radius: 0.3rem;
-      }
-      .server-healthy {
-        color: #28a745;
-      }
-      .server-unhealthy {
-        color: #dc3545;
+      .server-status-item {
+        margin-bottom: 10px;
+        padding: 15px;
       }
     </style>
   </head>
-  <body>
-    <div class="container">
-      <h1 class="text-center">Google Club Servers Health Check</h1>
+  <body class="bg-light">
+    <div class="container py-5">
+      <h1 class="text-center mb-4">Google Club Servers Health Check</h1>
 
-      <div id="serverStatus" class="card mt-3">
-        <div class="card-header">Server Status</div>
+      <div id="serverStatus" class="card mb-4">
+        <div class="card-header bg-primary text-white">Server Status</div>
         <ul class="list-group list-group-flush"></ul>
       </div>
-    </div>
 
-    <div class="container mt-5">
-      <h2 class="text-center">Client Portals</h2>
-      <div class="list-group">
-        <a
-          href="https://client1.example.com"
-          class="list-group-item list-group-item-action"
-          >Client 1 Portal</a
-        >
-        <a
-          href="https://client2.example.com"
-          class="list-group-item list-group-item-action"
-          >Client 2 Portal</a
-        >
-        <a
-          href="https://client3.example.com"
-          class="list-group-item list-group-item-action"
-          >Client 3 Portal</a
-        >
-        <a
-          href="https://client4.example.com"
-          class="list-group-item list-group-item-action"
-          >Client 4 Portal</a
-        >
+      <div class="card">
+        <div class="card-header bg-primary text-white">Clients</div>
+        <div id="generatedLinks" class="list-group list-group-flush p-3"></div>
       </div>
-    </div>
-    <div class="container mt-5">
-      <h2 class="text-center">Generated Links</h2>
-      <div id="generatedLinks" class="list-group"></div>
     </div>
 
     <script>
@@ -94,7 +44,7 @@
         },
         {
           name: "Account Console Web Client",
-          url: "https://account-console.vercel.app",
+          url: "https://accounts-console.vercel.app",
         },
         {
           name: "Formular Admin Web Client",
@@ -106,7 +56,10 @@
         return links
           .map(
             (link) =>
-              `<a href="${link.url}" class="list-group-item list-group-item-action">${link.name}</a>`
+              `<a href="${link.url}" target="_blank" class="list-group-item list-group-item-action mb-2">
+          <span>${link.name}</span>
+          <span class="badge bg-primary rounded-pill">Visit</span>
+          </a>`
           )
           .join("");
       }
@@ -114,7 +67,6 @@
       document.getElementById("generatedLinks").innerHTML =
         generateLinksHTML(linksArray);
     </script>
-
     <script>
       const serverEndpoints = [
         "https://cas-server.azurewebsites.net/api/health",
@@ -165,16 +117,15 @@
       function generateStatusHTML(serverStatuses) {
         let html = "";
         serverStatuses.forEach((serverStatus) => {
-          html += "<li class='list-group-item'>";
-          html += "<strong>" + serverStatus.url + "</strong>: ";
+          html +=
+            "<li class='list-group-item d-flex justify-content-between align-items-center server-status-item'>";
+          html += "<span><strong>" + serverStatus.url + "</strong>: ";
           if (serverStatus.status === "healthy") {
             html +=
-              "<span class='server-healthy'>" + serverStatus.status + "</span>";
+              "<span class='text-success'>" + serverStatus.status + "</span>";
           } else {
             html +=
-              "<span class='server-unhealthy'>" +
-              serverStatus.status +
-              "</span>";
+              "<span class='text-danger'>" + serverStatus.status + "</span>";
           }
           html += " (Code: " + serverStatus.code + ")";
           if (serverStatus.error) {
@@ -183,7 +134,7 @@
           if (serverStatus.body) {
             html += "<br>Body: " + JSON.stringify(serverStatus.body);
           }
-          html += "</li>";
+          html += "</span></li>";
         });
         return html;
       }
