@@ -52,6 +52,69 @@
       </div>
     </div>
 
+    <div class="container mt-5">
+      <h2 class="text-center">Client Portals</h2>
+      <div class="list-group">
+        <a
+          href="https://client1.example.com"
+          class="list-group-item list-group-item-action"
+          >Client 1 Portal</a
+        >
+        <a
+          href="https://client2.example.com"
+          class="list-group-item list-group-item-action"
+          >Client 2 Portal</a
+        >
+        <a
+          href="https://client3.example.com"
+          class="list-group-item list-group-item-action"
+          >Client 3 Portal</a
+        >
+        <a
+          href="https://client4.example.com"
+          class="list-group-item list-group-item-action"
+          >Client 4 Portal</a
+        >
+      </div>
+    </div>
+    <div class="container mt-5">
+      <h2 class="text-center">Generated Links</h2>
+      <div id="generatedLinks" class="list-group"></div>
+    </div>
+
+    <script>
+      const linksArray = [
+        {
+          name: "Account Management Web Client",
+          url: "https://account-manager-eta.vercel.app",
+        },
+        {
+          name: "Formular User Web Client",
+          url: "https://google-forms-tau.vercel.app",
+        },
+        {
+          name: "Account Console Web Client",
+          url: "https://account-console.vercel.app",
+        },
+        {
+          name: "Formular Admin Web Client",
+          url: "https://formular-administration.vercel.app",
+        },
+      ];
+
+      function generateLinksHTML(links) {
+        return links
+          .map(
+            (link) =>
+              `<a href="${link.url}" class="list-group-item list-group-item-action">${link.name}</a>`
+          )
+          .join("");
+      }
+
+      document.getElementById("generatedLinks").innerHTML =
+        generateLinksHTML(linksArray);
+    </script>
+
     <script>
       const serverEndpoints = [
         "https://cas-server.azurewebsites.net/api/health",
