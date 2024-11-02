@@ -1,40 +1,40 @@
-## 🏛️ Architecture
+## Architecture
 
 The **Google Club Unified Access System (UAS)** employs a structured architecture to manage authentication, authorization, and identity services. The system consists of two primary services, a shared database, and client interfaces designed for both users and admins, providing a secure, cohesive experience.
 
-### 🔧 Core Services
+### Core Services
 
-1. 🔐**CAS (Central Authentication Service)**
+1. **CAS (Central Authentication Service)**
 
 - **Purpose**: CAS handles authentication, using JWT (JSON Web Token) for secure token-based authentication.
 - **Features**:
-  - ⚡**Fast Access to Authorities**: CAS provides quick access to user authorities, ensuring low latency.
-  - 🗄️**Cache & Authority Control**: Caches user authorities to reduce load on the database and optimize performance.
+  - **Fast Access to Authorities**: CAS provides quick access to user authorities, ensuring low latency.
+  - **Cache & Authority Control**: Caches user authorities to reduce load on the database and optimize performance.
 - **Technology**: Built with **Express.js** for lightweight and efficient operation.
 
-2. 🆔**ICS (Identity Control Service)**
+2. **ICS (Identity Control Service)**
 
 - **Purpose**: ICS focuses on managing identity and access control for both users and administrators.
 - **Features**:
-  - 🔑**Access Management**: Configures and verifies authorities for integrated applications, with database checks to ensure accurate permissions.
-  - 👥**Comprehensive Identity Management**: Manages user profiles, permissions, and administrative controls.
+  - **Access Management**: Configures and verifies authorities for integrated applications, with database checks to ensure accurate permissions.
+  - **Comprehensive Identity Management**: Manages user profiles, permissions, and administrative controls.
 - **Technology**: Developed with **Spring Boot** for robust backend support and efficient data handling.
 
-### 🗃️ Shared Database
+### Shared Database
 
 Both CAS and ICS utilize a centralized **Accounts Database** (PostgreSQL), storing essential user data and access control information with durability and security:
 
-- 👤 **Account Information**: Holds user profiles and core account data.
-- 🔐 **Access Authorities**: Manages permissions across Google Club applications to ensure unified, up-to-date access control.
+- **Account Information**: Holds user profiles and core account data.
+- **Access Authorities**: Manages permissions across Google Club applications to ensure unified, up-to-date access control.
 
 **Database Structure**  
 ![Database Structure](./images/accounts-database-schema.png)
 
-### 🖥️ Client Interfaces
+### Client Interfaces
 
 The system includes two main Angular-based clients to allow users and administrators complete control over their accounts and permissions within Google Club:
 
-1. 👤**AMWC (Account Manager Web Client)**
+1. **AMWC (Account Manager Web Client)**
 
 - **Audience**: End-users.
 - **Purpose**:
@@ -42,7 +42,7 @@ The system includes two main Angular-based clients to allow users and administra
   - View authorities.
   - Single Sign-On (SSO) access across the ecosystem.
 
-2. 🛠️**ACWC (Accounts Console Web Client)**
+2. **ACWC (Accounts Console Web Client)**
 
 - **Audience**: Administrators.
 - **Purpose**:
@@ -50,7 +50,7 @@ The system includes two main Angular-based clients to allow users and administra
   - Granting, revoking, and managing permissions.
   - Analyzing user data and trends.
 
-### 🌐 API Endpoints
+### API Endpoints
 
 Each service has dedicated APIs to facilitate requests and operations across the UAS system:
 
@@ -158,7 +158,7 @@ Each service has dedicated APIs to facilitate requests and operations across the
 - **GET** `/verify-token`  
   Verify the validity of a token.
 
-### 🔄 System Communication
+### System Communication
 
 The UAS architecture supports smooth communication between the CAS, ICS, the shared database, and client interfaces. This integrated design supports real-time updates and centralized control over identity and access management.
 
