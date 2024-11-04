@@ -2,14 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SOA Server Health Check</title>
+    <title>Google Club Unified Access System - Health Check</title>
+    <link rel="icon" href="images/logo.png" type="image/x-icon" />
+    <!-- start font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- end font -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link href="imported/css/m-styles.min.css" rel="stylesheet" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css"
       rel="stylesheet"
@@ -24,20 +33,100 @@
         padding: 1em;
         white-space: pre-wrap; /* Optional: wrap long code lines */
       }
+      body {
+        background-color: #eee !important;
+        font-family: "Noto Sans", sans-serif;
+      }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   </head>
-  <body class="bg-light">
+  <body>
     <div class="container">
-      <h1 class="text-center my-4">Google Club Unified Access System (UAS)</h1>
-      <div class="row justify-content-center ps-2">
-        <div class="col-lg-10 col-md-12">
-          <a href="./health.html" class="btn btn-success">Health Check</a>
-          <a href="./integration.html" class="btn btn-primary ms-2"
-            >App Integration</a
+      <h1
+        class="text-center my-4 p-3"
+        style="font-family: 'Poppins', sans-serif"
+      >
+        Google Club
+        <span style="color: #0072bb">U</span>nified
+        <span style="color: #0072bb">A</span>ccess
+        <span style="color: #0072bb">S</span>ystem (<span style="color: #0072bb"
+          >UAS</span
+        >)
+      </h1>
+      <div
+        class="d-flex justify-content-between align-items-center col-lg-10 col-md-12 m-auto"
+      >
+        <div class="d-flex align-items-center">
+          <a href="./health.html" class="m-btn green rnd mt-0">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+              width="18"
+              height="18"
+              fill="#eee"
+            >
+              <path
+                d="M64 32C28.7 32 0 60.7 0 96l0 64c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-64c0-35.3-28.7-64-64-64L64 32zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm48 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zM64 288c-35.3 0-64 28.7-64 64l0 64c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-64c0-35.3-28.7-64-64-64L64 288zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm56 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"
+              />
+            </svg>
+            Health Check
+          </a>
+          <a href="./integration.html" class="m-btn blue rnd mt-0">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 640 512"
+              width="20"
+              height="20"
+              fill="#eee"
+            >
+              <path
+                d="M192 96a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm-8 384l0-128 16 0 0 128c0 17.7 14.3 32 32 32s32-14.3 32-32l0-288 56 0 64 0 16 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-16 0 0-64 192 0 0 192-192 0 0-32-64 0 0 48c0 26.5 21.5 48 48 48l224 0c26.5 0 48-21.5 48-48l0-224c0-26.5-21.5-48-48-48L368 0c-26.5 0-48 21.5-48 48l0 80-76.9 0-65.9 0c-33.7 0-64.9 17.7-82.3 46.6l-58.3 97c-9.1 15.1-4.2 34.8 10.9 43.9s34.8 4.2 43.9-10.9L120 256.9 120 480c0 17.7 14.3 32 32 32s32-14.3 32-32z"
+              />
+            </svg>
+            App Integration
+          </a>
+        </div>
+        <div class="d-flex align-items-center">
+          <iframe
+            src="https://ghbtns.com/github-btn.html?user=wassim-rached&repo=Google-Club-Unified-Access-System-Center&type=star&count=true&size=large"
+            frameborder="0"
+            scrolling="0"
+            width="170"
+            height="30"
+            title="GitHub"
+          ></iframe>
+
+          <!-- <iframe
+            src="https://ghbtns.com/github-btn.html?user=twbs&repo=bootstrap&type=star&count=true"
+            frameborder="0"
+            scrolling="0"
+            width="150"
+            height="20"
+            title="GitHub"
+          ></iframe> -->
+          <!-- <a
+            href="https://github.com/your-repo"
+            class="btn btn-dark"
+            style="height: 40px"
+            target="_blank"
           >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 16 16"
+              width="20"
+              height="20"
+              fill="currentColor"
+              class="bi bi-github me-2"
+            >
+              <path
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+              />
+            </svg>
+            Star
+          </a> -->
         </div>
       </div>
+
       <div class="row justify-content-center p-4">
         <div
           class="col-lg-10 col-md-12 border rounded shadow-sm p-5 bg-light mb-4 markdown-content"

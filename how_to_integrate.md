@@ -1,5 +1,3 @@
-# Integrating Your Application with Google UAS
-
 Integrating with the **Google Club Unified Access System (UAS)** for authentication and authorization is a straightforward process. Here’s a step-by-step guide to get your app fully integrated with Google Club UAS.
 
 For any assistance, please contact the admins at [contact.isetchggl@gmail.com](mailto:contact.isetchggl@gmail.com).
