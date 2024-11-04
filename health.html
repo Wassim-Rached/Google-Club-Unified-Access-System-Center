@@ -25,8 +25,25 @@
     />
     <style>
       body {
-        background-color: #eee !important;
+        background-color: #121212 !important;
+        color: #e0e0e0;
         font-family: "Noto Sans", sans-serif;
+      }
+      .container {
+        background-color: #1e1e1e;
+      }
+      .border {
+        border-color: #333 !important;
+      }
+      .bg-light {
+        background-color: #2c2c2c !important;
+      }
+      a.m-btn.green.rnd {
+        background-color: #0072bb;
+        color: #eee;
+      }
+      a.m-btn.green.rnd:hover {
+        background-color: #005f99;
       }
     </style>
   </head>
@@ -61,13 +78,15 @@
         <div
           class="col-lg-10 col-md-12 border rounded shadow-sm p-5 bg-light mb-4"
         >
-          <div id="serverStatus" class="card mb-4">
-            <div class="card-header bg-primary text-white">Server Status</div>
-            <ul class="list-group list-group-flush"></ul>
+          <div id="serverStatus" class="card mb-4 bg-dark text-white">
+            <div class="card-header bg-primary text-white bg-dark">
+              Server Status
+            </div>
+            <ul class="list-group list-group-flush bg-dark text-white"></ul>
           </div>
 
           <div class="card">
-            <div class="card-header bg-primary text-white">Clients</div>
+            <div class="card-header bg-dark text-white">Clients</div>
             <div
               id="generatedLinks"
               class="list-group list-group-flush p-3 pt-0"
